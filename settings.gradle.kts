@@ -22,6 +22,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "productivity_monitoring"
-include(":app")
 include(":composeApp")
  

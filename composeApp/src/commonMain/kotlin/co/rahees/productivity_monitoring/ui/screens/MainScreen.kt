@@ -49,8 +49,8 @@ fun MainScreen() {
                 0 -> DashboardContent()
                 1 -> TimerContent()
                 2 -> TodoContent()
-                3 -> NotesContent()
-                4 -> CalendarContent()
+                3 -> AlarmsContent()
+                4 -> NotesContent()
             }
         }
     }
@@ -65,8 +65,8 @@ private fun GlassBottomNavigation(
         BottomNavItem("Dashboard", Icons.Default.Home),
         BottomNavItem("Timer", Icons.Default.Timer),
         BottomNavItem("Tasks", Icons.Default.CheckCircle),
-        BottomNavItem("Notes", Icons.Default.Note),
-        BottomNavItem("Calendar", Icons.Default.CalendarMonth)
+        BottomNavItem("Alarms", Icons.Default.AccessAlarm),
+        BottomNavItem("Notes", Icons.Default.Note)
     )
     
     Card(
@@ -256,16 +256,7 @@ private fun QuickActionButton(
 
 @Composable
 private fun TimerContent() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Focus Timer - Coming Soon",
-            style = MaterialTheme.typography.headlineMedium,
-            color = Color.White
-        )
-    }
+    TimerScreen()
 }
 
 @Composable
@@ -274,31 +265,13 @@ private fun TodoContent() {
 }
 
 @Composable
-private fun NotesContent() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Quick Notes - Coming Soon",
-            style = MaterialTheme.typography.headlineMedium,
-            color = Color.White
-        )
-    }
+private fun AlarmsContent() {
+    AlarmsScreen()
 }
 
 @Composable
-private fun CalendarContent() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Calendar - Coming Soon",
-            style = MaterialTheme.typography.headlineMedium,
-            color = Color.White
-        )
-    }
+private fun NotesContent() {
+    NotesScreen()
 }
 
 private data class BottomNavItem(

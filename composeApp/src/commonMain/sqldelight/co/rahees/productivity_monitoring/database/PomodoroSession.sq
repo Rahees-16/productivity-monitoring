@@ -1,0 +1,27 @@
+CREATE TABLE PomodoroSession (
+    id TEXT NOT NULL PRIMARY KEY,
+    startTime TEXT NOT NULL,
+    endTime TEXT DEFAULT NULL,
+    duration INTEGER NOT NULL,
+    isCompleted INTEGER NOT NULL DEFAULT 0,
+    sessionType TEXT NOT NULL DEFAULT 'WORK'
+);
+
+selectAll:
+SELECT * FROM PomodoroSession ORDER BY startTime DESC;
+
+selectById:
+SELECT * FROM PomodoroSession WHERE id = ?;
+
+selectByDate:
+SELECT * FROM PomodoroSession WHERE DATE(startTime) = ? ORDER BY startTime DESC;
+
+insert:
+INSERT INTO PomodoroSession (id, startTime, endTime, duration, isCompleted, sessionType)
+VALUES (?, ?, ?, ?, ?, ?);
+
+updateCompletion:
+UPDATE PomodoroSession SET isCompleted = ?, endTime = ? WHERE id = ?;
+
+deleteById:
+DELETE FROM PomodoroSession WHERE id = ?;

@@ -1,0 +1,30 @@
+CREATE TABLE TodoItem (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL DEFAULT '',
+    isCompleted INTEGER NOT NULL DEFAULT 0,
+    createdAt TEXT NOT NULL,
+    completedAt TEXT DEFAULT NULL
+);
+
+selectAll:
+SELECT * FROM TodoItem ORDER BY createdAt DESC;
+
+selectById:
+SELECT * FROM TodoItem WHERE id = ?;
+
+insert:
+INSERT INTO TodoItem (id, title, description, isCompleted, createdAt, completedAt)
+VALUES (?, ?, ?, ?, ?, ?);
+
+updateCompletion:
+UPDATE TodoItem SET isCompleted = ?, completedAt = ? WHERE id = ?;
+
+updateTitle:
+UPDATE TodoItem SET title = ? WHERE id = ?;
+
+updateDescription:
+UPDATE TodoItem SET description = ? WHERE id = ?;
+
+deleteById:
+DELETE FROM TodoItem WHERE id = ?;

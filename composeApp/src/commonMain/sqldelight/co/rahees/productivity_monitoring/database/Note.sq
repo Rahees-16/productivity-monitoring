@@ -1,0 +1,22 @@
+CREATE TABLE Note (
+    id TEXT NOT NULL PRIMARY KEY,
+    content TEXT NOT NULL,
+    createdAt TEXT NOT NULL,
+    lastModified TEXT NOT NULL
+);
+
+selectAll:
+SELECT * FROM Note ORDER BY lastModified DESC;
+
+selectById:
+SELECT * FROM Note WHERE id = ?;
+
+insert:
+INSERT INTO Note (id, content, createdAt, lastModified)
+VALUES (?, ?, ?, ?);
+
+updateContent:
+UPDATE Note SET content = ?, lastModified = ? WHERE id = ?;
+
+deleteById:
+DELETE FROM Note WHERE id = ?;
